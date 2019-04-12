@@ -11,5 +11,5 @@
 ##
 
 docker build \
-    --tag keitetsu/guinness-base \
+    --tag keitetsu/guinness \
     .
