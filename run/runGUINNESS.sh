@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ##
-## @file        runSDSoC.sh
-## @brief       Script to run the GUINNESS Docker Image (for CPU only)
+## @file        runGUINNESS.sh
+## @brief       Script to run the GUINNESS Docker Image (for CUDA 8.0)
 ## @author      Keitetsu
 ## @date        2018/08/02
 ## @copyright   Copyright (c) 2018 Keitetsu
@@ -13,6 +13,7 @@
 xhost +local:root
 
 docker run \
+    --runtime=nvidia \
     --interactive \
     --tty \
     --net host \
@@ -23,6 +24,6 @@ docker run \
     --volume /tmp/.X11-unix:/tmp/.X11-unix:rw \
     --volume ${HOME}/GUINNESS:/opt/GUINNESS \
     --volume ${HOME}:/data \
-    keitetsu/guinness-base \
+    keitetsu/guinness \
     /bin/bash
 
